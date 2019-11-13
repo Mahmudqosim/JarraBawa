@@ -7,8 +7,20 @@ userName = prompt("Please enter your name?");
 } while (!userName);
 localStorage.setItem("USER", userName);
 name.innerText = "Hola" + " " + userName;
+admob.createBannerView();
 
+/*ADMOB*/
+function onDeviceReady() {
+    document.removeEventListener('deviceready', onDeviceReady, false);
 
+    // Set AdMobAds options:
+    admob.setOptions({
+        publisherId:          "ca-app-pub-6418918884534997/5917134334",  // Required
+        interstitialAdId:     "ca-app-pub-6418918884534997/8160154294",  // Optional
+    });
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
 
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
@@ -53,7 +65,8 @@ fetch(
 
       return formattedQuestion;
     });
-
+  
+    admob.createBannerView();
     startGame();
   })
   .catch(err => {
@@ -77,6 +90,7 @@ getNewQuestion = () => {
     localStorage.setItem("finalScore", score);
     return window.location.assign("file:///android_asset/www/pages/endgame.html");
   }
+  admob.createBannerView();
   questionCounter++;
   progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
   //Update the progress bar
