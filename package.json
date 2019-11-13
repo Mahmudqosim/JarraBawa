@@ -1,0 +1,21 @@
+{
+    "name": "Jarrabawa",
+    "displayName": "Jarrabawa",
+    "version": "1.0.0",
+    "description": "A science quiz app that uses trivia api.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Professor Flux",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-admob": "git+https://github.com/appfeel/admob-google-cordova.git",
+        "requireCordovaModule": "require"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-admob": {}
+        }
+    }
+}
